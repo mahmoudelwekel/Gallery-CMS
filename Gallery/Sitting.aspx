@@ -38,8 +38,8 @@
                                     <asp:FileUpload runat="server"  Width="150px" ID="infoimageuploder"></asp:FileUpload>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-<%--                                    <a class="btn btn-secondary" href="<%# "data:image/png;base64,"+new Controler().image(Eval("image")) %>" target="_blank"></a>--%>
-<%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/png;base64,"+new Controler().image(Eval("image")) %>' />--%>
+<%--                                    <a class="btn btn-secondary" href="<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>" target="_blank"></a>--%>
+<%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>' />--%>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

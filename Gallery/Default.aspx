@@ -43,7 +43,7 @@
                         %>
                         <div class="col-md-4 pageelement py-2">
                             <div class=" card hover border-primary">
-                                <img class="img-fluid card-img-top categoryslider-img" src="data:image/png;base64,<%#new Controler().image(Eval("product_image")) %>" alt="" style="height: 300px; object-fit: cover;" />
+                                <img class="img-fluid card-img-top categoryslider-img" src="data:image/JPEG;base64,<%#new Controler().image(Eval("product_image")) %>" alt="" style="height: 300px; object-fit: cover;" />
                                 <div class="card-header">
                                     <div style="overflow: hidden; white-space: nowrap; direction: rtl">
                                         <%#Eval("product_name")%>

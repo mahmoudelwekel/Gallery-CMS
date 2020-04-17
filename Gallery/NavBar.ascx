@@ -7,7 +7,7 @@
 %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="Default.aspx">
-        <img src="data:image/png;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" width="30" height="30" class="d-inline-block align-top" alt="" />
+        <img src="data:image/JPEG;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" width="30" height="30" class="d-inline-block align-top" alt="" />
         <%=info.Rows[0]["name"] %>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

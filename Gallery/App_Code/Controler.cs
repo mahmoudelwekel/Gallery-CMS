@@ -134,7 +134,7 @@ public class Controler
                         canvas.PixelOffsetMode = PixelOffsetMode.HighQuality;
                         canvas.DrawImage(oldImage, new Rectangle(new Point(0, 0), newSize));
                         MemoryStream m = new MemoryStream();
-                        newImage.Save(m, ImageFormat.Png);
+                        newImage.Save(m, ImageFormat.Jpeg);
                         return m.GetBuffer();
                     }
                 }

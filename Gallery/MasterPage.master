@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="data:image/png;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" type="image/png" />
+    <link rel="icon" href="data:image/JPEG;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" type="image/png" />
 
 
     <%--    <script src="scripts/all.min.js"></script>--%>
@@ -142,7 +142,7 @@
             <div class="jumbotron border border-primary font-weight-bold text-center py-3 " id="masteragejumbotron">
                 <br />
                 <div class="d-flex align-items-center justify-content-center">
-                    <img class="img-fluid mx-3" src="data:image/png;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" style="height: 70px" alt="LOGO" />
+                    <img class="img-fluid mx-3" src="data:image/JPEG;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" style="height: 70px" alt="LOGO" />
                     <h1 class="font-weight-bolder m-0" style=""><%=info.Rows[0]["name"] %></h1>
                 </div>
 
@@ -178,7 +178,7 @@
                 <div class=" row ">
                     <%--<div class="col-md-4 py-4">
                         <a href="Default.aspx">
-                            <img class="d-block mx-auto img-fluid" src="data:image/png;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" style="position: relative;width:250px" alt="LOGO"  />
+                            <img class="d-block mx-auto img-fluid" src="data:image/JPEG;base64,<%=new Controler().image(info.Rows[0]["image"]) %>" style="position: relative;width:250px" alt="LOGO"  />
 
                         </a>
                                                 <p class="footer-company-name">جميع الحقوق محفوظة</p>
