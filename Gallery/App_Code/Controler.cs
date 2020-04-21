@@ -114,7 +114,7 @@ public class Controler
     }
 
 
-    public byte[] ResizeImageFile(HttpPostedFile imageFile, int targetSize) // Set targetSize to 1024
+    public byte[] ResizeImageFile(HttpPostedFile imageFile, int targetSize ,ImageFormat imgformat) // Set targetSize to 1024
     {
         //try
         //{
@@ -134,7 +134,7 @@ public class Controler
                         canvas.PixelOffsetMode = PixelOffsetMode.HighQuality;
                         canvas.DrawImage(oldImage, new Rectangle(new Point(0, 0), newSize));
                         MemoryStream m = new MemoryStream();
-                        newImage.Save(m, ImageFormat.Jpeg);
+                        newImage.Save(m, imgformat);
                         return m.GetBuffer();
                     }
                 }

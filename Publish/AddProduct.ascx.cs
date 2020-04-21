@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GalleryDataSetTableAdapters;
+using System.Drawing.Imaging;
+
 public partial class AddProduct : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -24,9 +26,11 @@ public partial class AddProduct : System.Web.UI.UserControl
         {
             if (c.IsNotEmpty(Productname.Text) && c.IsNotEmpty(FileUpload1111.PostedFile.FileName) && c.IsNotEmpty(Productprice.Text) && c.IsNotEmpty(ProductsCategoryList.SelectedValue))
             {
-                ProductsTableAdapter.Insert(Productname.Text, decimal.Parse(Productprice.Text), c.ResizeImageFile(FileUpload1111.PostedFile, 384), int.Parse(ProductsCategoryList.SelectedValue), Productcomment.Text);
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#UpdateProgress1').style.display = 'block'", true);
 
-                c.Alert(this.Page, "تم الاضافة بنجاح", "", "success");
+                ProductsTableAdapter.Insert(Productname.Text, decimal.Parse(Productprice.Text), c.ResizeImageFile(FileUpload1111.PostedFile, 384,ImageFormat.Jpeg), int.Parse(ProductsCategoryList.SelectedValue), Productcomment.Text);
+
+                //c.Alert(this.Page, "تم الاضافة بنجاح", "", "success");
 
                 Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
                 //Productname.Text = "";
@@ -36,7 +40,9 @@ public partial class AddProduct : System.Web.UI.UserControl
             }
             else
             {
-                c.Alert(this.Page, "لم يتم الحفظ بنجاح", "", "warning");
+                //c.Alert(this.Page, "لم يتم الحفظ بنجاح", "", "warning");
+                Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
+
             }
         }
         catch (Exception errortxt)

@@ -11,6 +11,9 @@ using System.Data;
 
 public partial class _Default : System.Web.UI.Page
 {
+    public DataTable info = new GalleryDataSetTableAdapters.InfoTableAdapter().GetData();
+    public Controler c = new Controler();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 

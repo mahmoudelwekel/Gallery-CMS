@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GalleryDataSetTableAdapters;
 using AjaxControlToolkit;
+using System.Drawing.Imaging;
 
 public partial class Products : System.Web.UI.Page
 {
@@ -45,8 +46,8 @@ public partial class Products : System.Web.UI.Page
                 //HttpPostedFile uploadImage = flUp.PostedFile;
                 ////read the image stream from the post and store it in imageBytes
                 //uploadImage.InputStream.Read(imageBytes, 0, (int)flUp.PostedFile.ContentLength);
-
-                ProductsTableAdapter.Updateimage(c.ResizeImageFile(flUp.PostedFile, 384), int.Parse(flUp.ToolTip));
+                
+                ProductsTableAdapter.Updateimage(c.ResizeImageFile(flUp.PostedFile, 384,ImageFormat.Jpeg), int.Parse(flUp.ToolTip));
 
 
             }

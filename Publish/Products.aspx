@@ -61,7 +61,7 @@
 <%--                                    <asp:FileUpload runat="server" ID=""></asp:FileUpload>--%>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-<%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/png;base64,"+new Controler().image(Eval("image")) %>' />--%>
+<%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>' />--%>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

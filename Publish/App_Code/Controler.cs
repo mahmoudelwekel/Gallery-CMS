@@ -48,25 +48,6 @@ public class Controler
     }
 
 
-    public string image(object image)
-    {
-        try
-        {
-
-            if (!Convert.IsDBNull(image))
-            {
-                return Convert.ToBase64String((byte[])image);
-            }
-            else
-            {
-                return "";
-            }
-        }
-        catch (Exception)
-        {
-            return "";
-        }
-    }
     
 
     public void GridView_RowUpdated(object sender, GridViewUpdatedEventArgs e)
@@ -112,9 +93,28 @@ public class Controler
         }
     }
 
+    public string image(object image)
+    {
+        try
+        {
+
+            if (!Convert.IsDBNull(image))
+            {
+                return Convert.ToBase64String((byte[])image);
+            }
+            else
+            {
+                return "";
+            }
+        }
+        catch (Exception)
+        {
+            return "";
+        }
+    }
 
 
-    public byte[] ResizeImageFile(HttpPostedFile imageFile, int targetSize) // Set targetSize to 1024
+    public byte[] ResizeImageFile(HttpPostedFile imageFile, int targetSize ,ImageFormat imgformat) // Set targetSize to 1024
     {
         //try
         //{
@@ -134,7 +134,7 @@ public class Controler
                         canvas.PixelOffsetMode = PixelOffsetMode.HighQuality;
                         canvas.DrawImage(oldImage, new Rectangle(new Point(0, 0), newSize));
                         MemoryStream m = new MemoryStream();
-                        newImage.Save(m, ImageFormat.Png);
+                        newImage.Save(m, imgformat);
                         return m.GetBuffer();
                     }
                 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GalleryDataSetTableAdapters;
+using System.Drawing.Imaging;
 
 public partial class Sitting : System.Web.UI.Page
 {
@@ -39,7 +40,7 @@ public partial class Sitting : System.Web.UI.Page
                 //uploadImage.InputStream.Read(imageBytes, 0, (int)flUp.PostedFile.ContentLength);
 
 
-                InfoTableAdapter.Updateimage(c.ResizeImageFile(flUp.PostedFile, 512));
+                InfoTableAdapter.Updateimage(c.ResizeImageFile(flUp.PostedFile, 200,ImageFormat.Png));
 
 
             }

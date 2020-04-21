@@ -15,7 +15,7 @@
     </div>
 
 
-   <%-- <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <%-- <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <div class="addthis_inline_share_toolbox_d5na mb-3"></div>--%>
 
     <div class="row p-3">
@@ -38,17 +38,15 @@
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ProductsViewObjectDataSource">
                     <ItemTemplate>
-                        <%
-                            System.Data.DataTable info = new GalleryDataSetTableAdapters.InfoTableAdapter().GetData();
-                        %>
+                    
                         <div class="col-md-4 pageelement py-2">
                             <div class=" card hover border-primary">
-                                <img class="img-fluid card-img-top categoryslider-img" src="data:image/JPEG;base64,<%#new Controler().image(Eval("product_image")) %>" alt="" style="height: 300px; object-fit: cover;" />
-                                <div class="card-header">
+                                <img class="img-fluid card-img-top categoryslider-img" src="data:image/JPEG;base64,<%#c.image(Eval("product_image")) %>" alt="" style="height: 300px; object-fit: cover;" />
+                                <a class="card-header btn btn-outline-primary  font-weight-bold rounded-0  border-left-0 border-right-0" href="ProductDetails.aspx?i=<%#Eval("product_id") %>">
                                     <div style="overflow: hidden; white-space: nowrap; direction: rtl">
                                         <%#Eval("product_name")%>
                                     </div>
-                                </div>
+                                </a>
                                 <div class="card-body w-100 text-primary categoryslider-body" style="position: absolute; top: 0px; background-color: black; display: none; opacity: .8; overflow-y: scroll; max-height: 100%;">
                                     <h5 class="card-title font-weight-bold"><%#Eval("product_name") %></h5>
                                     <p class="card-text ">
@@ -88,7 +86,6 @@
 
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<%--    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d62b17de0bd801e"></script>--%>
-
+    <%--    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d62b17de0bd801e"></script>--%>
 </asp:Content>
 

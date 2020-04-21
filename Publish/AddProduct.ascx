@@ -59,8 +59,8 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <ajaxToolkit:AsyncFileUpload ID="FileUpload1111" CssClass="custom-file-input" runat="server" />
-<%--                                <asp:FileUpload ID="" runat="server"  />--%>
+<%--                                <ajaxToolkit:AsyncFileUpload ID="FileUpload1111" CssClass="custom-file-input" runat="server" />--%>
+                                <asp:FileUpload ID="FileUpload1111" CssClass="custom-file-input" runat="server"  />
                                 <label class="custom-file-label" for="inputGroupFile01">أختر الصورة</label>
                             </div>
                             <div class="input-group-append">

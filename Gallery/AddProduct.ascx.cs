@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GalleryDataSetTableAdapters;
+using System.Drawing.Imaging;
+
 public partial class AddProduct : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -26,7 +28,7 @@ public partial class AddProduct : System.Web.UI.UserControl
             {
                 //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "$('#UpdateProgress1').style.display = 'block'", true);
 
-                ProductsTableAdapter.Insert(Productname.Text, decimal.Parse(Productprice.Text), c.ResizeImageFile(FileUpload1111.PostedFile, 384), int.Parse(ProductsCategoryList.SelectedValue), Productcomment.Text);
+                ProductsTableAdapter.Insert(Productname.Text, decimal.Parse(Productprice.Text), c.ResizeImageFile(FileUpload1111.PostedFile, 384,ImageFormat.Jpeg), int.Parse(ProductsCategoryList.SelectedValue), Productcomment.Text);
 
                 //c.Alert(this.Page, "تم الاضافة بنجاح", "", "success");
 

@@ -29,7 +29,7 @@ public partial class AddCategory : System.Web.UI.UserControl
 
                 products_categoriesTableAdapter.Insert(ProductsCategoriesname.Text, ProductsCategoriescomment.Text);
 
-                c.Alert(this.Page, "تم الاضافة بنجاح", "", "success");
+                //c.Alert(this.Page, "تم الاضافة بنجاح", "", "success");
 
                 Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri);
                 //ProductsCategoriesname.Text = "";
