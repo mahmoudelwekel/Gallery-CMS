@@ -48,20 +48,16 @@
                                     </div>
                                 </a>
                                 <div class="card-body w-100 text-primary categoryslider-body" style="position: absolute; top: 0px; background-color: black; display: none; opacity: .8; overflow-y: scroll; max-height: 100%;">
-                                    <h5 class="card-title font-weight-bold"><%#Eval("product_name") %></h5>
+                                    <h5 dir="rtl" class="card-title font-weight-bold"><%#Eval("product_name") %></h5>
                                     <p class="card-text ">
-                                        القسم : <%#Eval("category_name") %>
-                                        <br />
+                                        <%--القسم : <%#Eval("category_name") %>
+                                        <br />--%>
                                         السعر : <%#Eval("product_price") %>
                                     </p>
-                                    <p class="card-text ">
-                                        تفاصيل عن المنتج
-                        <br />
-                                        <%#Eval("product_description") %>
-                                    </p>
+                                    <p class="card-text text-right text-pre" dir="rtl"><%#Eval("product_description") %></p>
 
                                 </div>
-                                <a href="https://wa.me/2<%= info.Rows[0]["phone"] %>?text=<%#Eval("product_name") %>" class="btn btn-outline-primary card-footer font-weight-bold border-0 w-100" target="_blank">تواصل معنا الأن</a>
+                                <a href="https://wa.me/2<%= info.Rows[0]["phone"] %>?text=<%#Eval("product_name") %>" class="btn btn-outline-primary card-footer font-weight-bold border-0 w-100" target="_blank">اطلب الأن</a>
                             </div>
                         </div>
                     </ItemTemplate>
