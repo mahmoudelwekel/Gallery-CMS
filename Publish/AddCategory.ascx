@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <asp:TextBox ID="ProductsCategoriescomment" runat="server" CssClass="form-control text-right " placeholder="ملاحظة عن القسم"></asp:TextBox>
+                            <asp:TextBox ID="ProductsCategoriescomment"  TextMode="MultiLine" runat="server" CssClass="form-control text-right " placeholder="ملاحظة عن القسم"></asp:TextBox>
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon3"><i class="fas fa-plus fa-1x"></i></span>
                             </div>

@@ -21,7 +21,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">اضافة صنف</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">اضافة منتج</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -30,7 +30,7 @@
                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <div class="input-group mb-3">
-                            <asp:TextBox ID="Productname" runat="server" CssClass="form-control text-right " placeholder="اسم الصنف"></asp:TextBox>
+                            <asp:TextBox ID="Productname" runat="server" CssClass="form-control text-right " placeholder="اسم المنتج"></asp:TextBox>
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-product-hunt fa-1x"></i></span>
                             </div>
@@ -46,13 +46,13 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <asp:TextBox ID="Productprice" TextMode="Number" min="1" runat="server" CssClass="form-control text-right " placeholder="سعر بيع الصنف"></asp:TextBox>
+                            <asp:TextBox ID="Productprice" TextMode="Number" min="1" runat="server" CssClass="form-control text-right " placeholder="سعر بيع المنتج"></asp:TextBox>
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon4"><i class="fas fa-comment-dollar fa-1x"></i></span>
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <asp:TextBox ID="Productcomment" runat="server" CssClass="form-control text-right " placeholder="ملاحظة عن الصنف"></asp:TextBox>
+                            <asp:TextBox ID="Productcomment" TextMode="MultiLine" runat="server" CssClass="form-control text-right " placeholder="ملاحظة عن المنتج"></asp:TextBox>
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon5"><i class="fas fa-plus fa-1x"></i></span>
                             </div>

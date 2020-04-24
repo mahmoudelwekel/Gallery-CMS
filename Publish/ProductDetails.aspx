@@ -6,30 +6,32 @@
 
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ProductsViewObjectDataSource">
         <ItemTemplate>
-            <%
-            %>
             <div class="card text-right">
                 <div class="row no-gutters">
-                    <div class="col-md-4 p-3">
+                    <div class="col-md-5 p-3">
                         <a data-toggle="modal" href="#" data-target="#exampleModal">
                             <img class="card-img img-fluid shadow h-100 w-100 border" src="data:image/JPEG;base64,<%#c.image(Eval("product_image")) %>" alt="" style="object-fit: cover;" />
                         </a>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="card-body">
-                            <h4 class="card-title font-weight-bold"><%#Eval("product_name")%></h4>
-                            <p class="card-text"><%#Eval("product_description") %></p>
+                            <h4 class="card-title font-weight-bold" dir="rtl"><%#Eval("product_name")%></h4>
+                            <p class="card-text text-pre" dir="rtl" ><%#Eval("product_description") %></p>
                             <p class="card-text" dir="rtl"><small class="text-muted h6 font-weight-bold">السعر : <%#Eval("product_price") %></small></p>
-                            <a href="https://wa.me/2<%= info.Rows[0]["phone"] %>?text=<%#Eval("product_name") %>" class="btn btn-outline-primary  font-weight-bold w-100" target="_blank">اطلب الأن</a>
+                            <a href="https://wa.me/2<%= info.Rows[0]["phone"] %>?text=<%#Eval("product_name") %>" class="btn btn-primary  font-weight-bold w-100" target="_blank">اطلب الأن</a>
                             <hr />
                             <p class="card-text" dir="rtl">
-                                <a href="Default.aspx?search=<%#Eval("category_name") %>">
-
-                                    <%#Eval("category_name") %> : <%#Eval("category_description") %>
+                                <a class="btn btn-sm btn-outline-primary font-weight-bold " href="Default.aspx?search=<%#Eval("category_name") %>">
+                                    <%#"قسم "+Eval("category_name") %>
                                 </a>
                             </p>
+                            <p class="card-text text-pre" dir="rtl" ><%#Eval("category_description") %></p>
 
+                            <hr />
 
+                            <p class="card-text">شارك الأن</p>
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox_d5na mb-3"></div>
                         </div>
                     </div>
                 </div>
@@ -64,6 +66,8 @@
         </SelectParameters>
     </asp:ObjectDataSource>
 
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d62b17de0bd801e"></script>
 
 </asp:Content>
 

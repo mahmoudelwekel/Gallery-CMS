@@ -35,6 +35,7 @@
                             </asp:CommandField>
                             <asp:BoundField DataField="id" HeaderText="الرقم" SortExpression="id" ItemStyle-Width="50px" InsertVisible="False" ReadOnly="True">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
+                            <ItemStyle Width="50px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="name" HeaderText="الأسم" SortExpression="name">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
@@ -50,19 +51,25 @@
                             <asp:BoundField DataField="price" HeaderText="السعر" SortExpression="price">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="description" HeaderText="التفاصيل" SortExpression="description">
-                                <ControlStyle CssClass="form-control Gridcontrol" />
-                            </asp:BoundField>
-                            <asp:TemplateField HeaderText="الصورة" SortExpression="image" ItemStyle-Width="150px">
+                            <asp:TemplateField HeaderText="التفاصيل" SortExpression="description">
                                 <EditItemTemplate>
                                                     
-                                    <ajaxToolkit:AsyncFileUpload ID="infoimageuploder"   OnUploadedComplete="infoimageuploder_UploadedComplete"  Width="150px" runat="server" ClientIDMode="AutoID" ToolTip='<%# Bind("id") %>' />
-
-<%--                                    <asp:FileUpload runat="server" ID=""></asp:FileUpload>--%>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("description") %>' TextMode="MultiLine"></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-<%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>' />--%>
+                                    <%# Eval("description") %>
                                 </ItemTemplate>
+                                <ControlStyle CssClass="form-control Gridcontrol" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="الصورة" ItemStyle-Width="150px" SortExpression="image">
+                                <EditItemTemplate>
+                                    <ajaxToolkit:AsyncFileUpload ID="infoimageuploder" runat="server" ClientIDMode="AutoID" OnUploadedComplete="infoimageuploder_UploadedComplete" ToolTip='<%# Bind("id") %>' Width="150px" />
+                                    <%--                                    <asp:FileUpload runat="server" ID=""></asp:FileUpload>--%>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>' />--%>
+                                </ItemTemplate>
+                                <ItemStyle Width="150px" />
                             </asp:TemplateField>
                         </Columns>
                         <PagerSettings PageButtonCount="5" Mode="NumericFirstLast" />
