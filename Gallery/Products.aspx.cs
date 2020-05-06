@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using GalleryDataSetTableAdapters;
 using AjaxControlToolkit;
 using System.Drawing.Imaging;
+using System.Data;
 
 public partial class Products : System.Web.UI.Page
 {
@@ -17,6 +18,8 @@ public partial class Products : System.Web.UI.Page
 
     InfoTableAdapter InfoTableAdapter = new InfoTableAdapter();
     ProductsTableAdapter ProductsTableAdapter = new ProductsTableAdapter();
+    public DataTable CategoriesDT = new CategoriesTableAdapter().GetData();
+
     Controler c = new Controler();
 
     protected void infoGV_RowUpdated(object sender, GridViewUpdatedEventArgs e)

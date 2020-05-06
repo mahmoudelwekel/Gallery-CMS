@@ -33,13 +33,20 @@
                             </asp:CommandField>
                             <asp:BoundField DataField="id" HeaderText="الرقم" SortExpression="id" ItemStyle-Width="50px" InsertVisible="False" ReadOnly="True">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
+                            <ItemStyle Width="50px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="name" HeaderText="الأسم" SortExpression="name">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="description" HeaderText="التفاصيل" SortExpression="description">
+                            <asp:TemplateField HeaderText="التفاصيل" SortExpression="description">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Text='<%# Bind("description") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <%# Eval("description") %>
+                                </ItemTemplate>
                                 <ControlStyle CssClass="form-control Gridcontrol" />
-                            </asp:BoundField>
+                            </asp:TemplateField>
                         </Columns>
                         <PagerSettings PageButtonCount="5" Mode="NumericFirstLast" />
                     </asp:GridView>

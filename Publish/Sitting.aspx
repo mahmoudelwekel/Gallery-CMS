@@ -23,15 +23,24 @@
                         <Columns>
                             <asp:CommandField CancelText="إلغاء" EditText="تعديل" ShowEditButton="True" UpdateText="حفظ" ItemStyle-Width="100px">
                                 <ControlStyle CssClass="btn btn-outline-primary  font-weight-bold m-2" />
+                            <ItemStyle Width="100px" />
                             </asp:CommandField>
                             <asp:BoundField DataField="name" HeaderText="أسم المكان" SortExpression="name" ItemStyle-Width="200px">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
+                            <ItemStyle Width="200px" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="description" HeaderText="عن المكان" SortExpression="description">
+                            <asp:TemplateField HeaderText="عن المكان" SortExpression="description">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" TextMode="MultiLine" runat="server" Text='<%# Bind("description") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <%# Eval("description") %>
+                                </ItemTemplate>
                                 <ControlStyle CssClass="form-control Gridcontrol" />
-                            </asp:BoundField>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="phone" HeaderText="الهاتف" SortExpression="phone" ItemStyle-Width="150px">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
+                            <ItemStyle Width="150px" />
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="الصورة" SortExpression="image" ItemStyle-Width="150px">
                                 <EditItemTemplate>
@@ -41,6 +50,7 @@
 <%--                                    <a class="btn btn-secondary" href="<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>" target="_blank"></a>--%>
 <%--                                    <asp:Image runat="server" ID="Image1" CssClass="d-block mx-auto img-fluid" Width="100px" ImageUrl='<%# "data:image/JPEG;base64,"+new Controler().image(Eval("image")) %>' />--%>
                                 </ItemTemplate>
+                                <ItemStyle Width="150px" />
                             </asp:TemplateField>
                         </Columns>
                         <PagerSettings PageButtonCount="5" Mode="NumericFirstLast" />

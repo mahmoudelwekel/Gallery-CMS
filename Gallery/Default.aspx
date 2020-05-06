@@ -4,7 +4,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <div class="input-group d-md-flex mb-3">
+    <nav class="navbar navbar-expand-lg shadow sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="Control.aspx"><i class="fas fa-lg fa-cogs"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto" dir="rtl" id="catBtns">
+                <a href="Default.aspx" class='active nav-item nav-link  font-weight-bold'><i class="fas fa-lg fa-home"></i></a> 
+                <asp:Repeater runat="server" DataSourceID="CategoriesObjectDataSource">
+                    <ItemTemplate>
+                        <a class='border'></a>
+                        <a href='Default.aspx?search=<%#Eval("name") %>' class='active nav-item nav-link  font-weight-bold'><%#Eval("name") %></a>  
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </nav>
+    <%--            <a href="" class="btn btn-sm font-weight-bolder btn-outline-primary mt-1" role="button" aria-pressed="true">عرض الكل</a>--%>
+    <asp:ObjectDataSource runat="server" ID="CategoriesObjectDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="GalleryDataSetTableAdapters.CategoriesTableAdapter"></asp:ObjectDataSource>
+
+    <div class="input-group d-md-flex mt-3">
 
         <asp:TextBox ID="SearchTxt" dir="rtl" runat="server" CssClass="form-control text-center" placeholder="أكتب أى كلمة للبحث عنها" AutoCompleteType="Search" AutoPostBack="True" OnTextChanged="AddProductToBill_Click" TextMode="Search"></asp:TextBox>
         <div class="input-group-append">
@@ -17,20 +37,9 @@
 
     <%-- <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <div class="addthis_inline_share_toolbox_d5na mb-3"></div>--%>
+    <div class="sharethis-inline-share-buttons  mt-3 mb-2"></div>
 
-    <div class="row p-3">
-        <div class="col " dir="rtl">
 
-            <a href="Default.aspx" class="btn btn-sm font-weight-bolder btn-outline-primary mt-1" role="button" aria-pressed="true">عرض الكل</a>
-            <asp:Repeater runat="server" DataSourceID="CategoriesObjectDataSource">
-                <ItemTemplate>
-                    <a href="Default.aspx?search=<%#Eval("name") %>" class="btn btn-sm font-weight-bolder btn-outline-primary mt-1" role="button" aria-pressed="true"><%#Eval("name") %></a>
-                </ItemTemplate>
-            </asp:Repeater>
-            <asp:ObjectDataSource runat="server" ID="CategoriesObjectDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="GalleryDataSetTableAdapters.CategoriesTableAdapter"></asp:ObjectDataSource>
-
-        </div>
-    </div>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -38,7 +47,7 @@
 
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ProductsViewObjectDataSource">
                     <ItemTemplate>
-                    
+
                         <div class="col-md-4 pageelement py-2">
                             <div class=" card hover border-primary">
                                 <img class="img-fluid card-img-top categoryslider-img" src="data:image/JPEG;base64,<%#c.image(Eval("product_image")) %>" alt="" style="height: 300px; object-fit: cover;" />
@@ -83,5 +92,7 @@
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <%--    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d62b17de0bd801e"></script>--%>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5eb2b4469fbb400012e5ad44&product=inline-share-buttons' async='async'></script>
+
 </asp:Content>
 

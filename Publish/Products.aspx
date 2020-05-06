@@ -10,13 +10,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-        <uc1:NavBar runat="server" ID="NavBar" />
+    <uc1:NavBar runat="server" ID="NavBar" />
 
     <fieldset>
         <legend>تعريف المنتجات</legend>
-  
+
         <uc1:AddProduct runat="server" ID="AddProduct" Class="btn btn-primary text-white btn-block mb-3 btn-lg" Text="اضافة منتج" />
-        <asp:updatepanel id="UpdatePanel1" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
 
                 <div class="table-responsive">
@@ -28,14 +28,14 @@
                         AllowSorting="True"
                         AutoGenerateColumns="False"
                         CssClass="table  table-hover table-striped table-bordered table-sm dataTable text-center"
-                        EmptyDataText="لا يوجد نتائج"  DataKeyNames="id" DataSourceID="ProductsObjectDataSource" OnRowUpdated="infoGV_RowUpdated">
+                        EmptyDataText="لا يوجد نتائج" DataKeyNames="id" DataSourceID="ProductsObjectDataSource" OnRowUpdated="infoGV_RowUpdated">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="false" CancelText="الغاء" DeleteText="حذف" EditText="تعديل" UpdateText="حفظ">
                                 <ControlStyle CssClass="btn btn-outline-primary  font-weight-bold m-2" />
                             </asp:CommandField>
                             <asp:BoundField DataField="id" HeaderText="الرقم" SortExpression="id" ItemStyle-Width="50px" InsertVisible="False" ReadOnly="True">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
-                            <ItemStyle Width="50px" />
+                                <ItemStyle Width="50px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="name" HeaderText="الأسم" SortExpression="name">
                                 <ControlStyle CssClass="form-control Gridcontrol" />
@@ -45,7 +45,10 @@
                                     <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control DropDownListWithSearch Gridcontrol" DataSourceID="ObjectDataSource1" DataTextField="name" DataValueField="id" SelectedValue='<%# Bind("category") %>'></asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="labeDropDownList Gridcontrol" DataSourceID="ObjectDataSource1" DataTextField="name" DataValueField="id" SelectedValue='<%# Bind("category") %>'></asp:DropDownList>
+                                    <%# CategoriesDT.Select("id = "+Eval("category"))[0]["name"] %>
+
+                                    <%--                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("category") %>'></asp:Label>--%>
+                                    <%--                                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="labeDropDownList Gridcontrol" DataSourceID="ObjectDataSource1" DataTextField="name" DataValueField="id" SelectedValue='<%# Bind("category") %>'></asp:DropDownList>--%>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="price" HeaderText="السعر" SortExpression="price">
@@ -53,7 +56,7 @@
                             </asp:BoundField>
                             <asp:TemplateField HeaderText="التفاصيل" SortExpression="description">
                                 <EditItemTemplate>
-                                                    
+
                                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("description") %>' TextMode="MultiLine"></asp:TextBox>
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -96,7 +99,7 @@
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="ProductGridView" />
             </Triggers>
-        </asp:updatepanel>
+        </asp:UpdatePanel>
     </fieldset>
 
 

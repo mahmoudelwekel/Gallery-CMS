@@ -6,12 +6,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  
-    <uc1:NavBar runat="server" ID="NavBar" />
-    <h1  class="font-weight-bolder py-5 my-5">
-        لوحة التحكم الرئيسية
-    </h1>
 
+    <uc1:NavBar runat="server" ID="NavBar" />
+    <h1 class="font-weight-bolder py-5 my-5">لوحة التحكم الرئيسية
+    </h1>
 
 </asp:Content>
 
