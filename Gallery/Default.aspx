@@ -4,18 +4,35 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <nav class="navbar navbar-expand-lg shadow sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="Control.aspx"><i class="fas fa-lg fa-cogs"></i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="Control.aspx" class="navbar-brand">
+            <i class="fas fa-lg fa-cogs"></i>
+        </a>
+        <%-- <div class=" col mr-1 p-0" style="min-width: 120px;">
+        </div>--%>
+
+        <button class="navbar-toggler px-1" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+            <div class="form-inline my-2 my-lg-0" dir="ltr">
+                <div class="input-group w-100">
+                    <div class="input-group-prepend">
+                        <asp:LinkButton runat="server" ID="AddProductToBill" CssClass="form-control btn btn-primary font-weight-bolder" OnClick="AddProductToBill_Click">
+                    <i class="fas fa-search "></i>
+                        </asp:LinkButton>
+                    </div>
+                    <asp:TextBox ID="SearchTxt" dir="rtl" runat="server" CssClass="form-control text-center" placeholder="البحث" AutoCompleteType="Search" AutoPostBack="True" OnTextChanged="AddProductToBill_Click" TextMode="Search"></asp:TextBox>
+                </div>
+            </div>
             <div class="navbar-nav ml-auto" dir="rtl" id="catBtns">
-                <a href="Default.aspx" class='active nav-item nav-link  font-weight-bold'><i class="fas fa-lg fa-home"></i></a> 
+                <a class="border d-lg-none"></a>
+
+                <a href="Default.aspx" class='active nav-item nav-link  font-weight-bold'><i class="fas fa-lg fa-home"></i></a>
                 <asp:Repeater runat="server" DataSourceID="CategoriesObjectDataSource">
                     <ItemTemplate>
                         <a class='border'></a>
-                        <a href='Default.aspx?search=<%#Eval("name") %>' class='active nav-item nav-link  font-weight-bold'><%#Eval("name") %></a>  
+                        <a href='Default.aspx?search=<%#Eval("name") %>' class='active nav-item nav-link  font-weight-bold'><%#Eval("name") %></a>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -24,15 +41,7 @@
     <%--            <a href="" class="btn btn-sm font-weight-bolder btn-outline-primary mt-1" role="button" aria-pressed="true">عرض الكل</a>--%>
     <asp:ObjectDataSource runat="server" ID="CategoriesObjectDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="GalleryDataSetTableAdapters.CategoriesTableAdapter"></asp:ObjectDataSource>
 
-    <div class="input-group d-md-flex mt-3">
 
-        <asp:TextBox ID="SearchTxt" dir="rtl" runat="server" CssClass="form-control text-center" placeholder="أكتب أى كلمة للبحث عنها" AutoCompleteType="Search" AutoPostBack="True" OnTextChanged="AddProductToBill_Click" TextMode="Search"></asp:TextBox>
-        <div class="input-group-append">
-            <asp:LinkButton runat="server" ID="AddProductToBill" CssClass="form-control btn btn-primary font-weight-bolder" OnClick="AddProductToBill_Click">
-                    بحث <i class="fas fa-search fa-1x"></i>
-            </asp:LinkButton>
-        </div>
-    </div>
 
 
     <%-- <!-- Go to www.addthis.com/dashboard to customize your tools -->
